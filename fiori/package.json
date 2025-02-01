@@ -2,7 +2,6 @@
   "name": "@capire/fiori",
   "version": "1.0.0",
   "dependencies": {
-    "@capire/bookstore": "*",
     "@sap/cds": ">=5",
     "@cap-js-community/odata-v2-adapter": "^1",
     "express": "^4.17.1"
@@ -16,14 +15,6 @@
   },
   "cds": {
     "requires": {
-      "ReviewsService": {
-        "kind": "odata",
-        "model": "@capire/reviews"
-      },
-      "OrdersService": {
-        "kind": "odata",
-        "model": "@capire/orders"
-      },
       "messaging": {
         "[production]": {
           "kind": "enterprise-messaging"
@@ -52,8 +43,6 @@
     }
   },
   "sapux": [
-    "app/admin-authors",
-    "app/admin-books",
     "app/browse"
   ]
 }
