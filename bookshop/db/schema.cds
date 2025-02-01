@@ -1,4 +1,4 @@
-using { Currency, managed, sap, sap.common.CodeList } from '@sap/cds/common';
+using { Currency, managed, sap.common.CodeList} from '@sap/cds/common';
 namespace quizapp;
 entity Books : managed {
   key ID   : Integer;
@@ -21,9 +21,7 @@ entity Authors : managed {
   placeOfDeath : String;
   books        : Association to many Books on books.author = $self;
 }
-
-/** Hierarchically organized Code List for Genres */
-entity Genres : sap.common.CodeList {
+entity Genres : CodeList {
   key ID   : Integer;
   parent   : Association to Genres;
   children : Composition of many Genres on children.parent = $self;

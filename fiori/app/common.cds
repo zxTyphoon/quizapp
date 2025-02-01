@@ -21,7 +21,6 @@ annotate my.Books with @(
     LineItem        : [
       { Value: ID, Label: '{i18n>Title}' },
       { Value: author.ID, Label: '{i18n>Author}' },
-      { Value: genre.name },
       { Value: stock },
       { Value: price },
       { Value: currency.symbol },
@@ -35,10 +34,6 @@ annotate my.Books with @(
   };
   author @ValueList.entity      : 'Authors';
 };
-
-annotate Currencies with {
-  symbol @Common.Label : '{i18n>Currency}';
-}
 
 ////////////////////////////////////////////////////////////////////////////
 //
@@ -59,7 +54,6 @@ annotate my.Books with @(UI : {HeaderInfo : {
 annotate my.Books with {
   ID     @title: '{i18n>ID}';
   title  @title: '{i18n>Title}';
-  genre  @title: '{i18n>Genre}'   @Common: { Text: genre.name, TextArrangement: #TextOnly };
   author @title: '{i18n>Author}'  @Common: { Text: author.name, TextArrangement: #TextOnly };
   price  @title: '{i18n>Price}'   @Measures.ISOCurrency : currency_code;
   stock  @title: '{i18n>Stock}';
@@ -67,55 +61,6 @@ annotate my.Books with {
   image  @title: '{i18n>Image}';
 }
 
-////////////////////////////////////////////////////////////////////////////
-//
-//	Genres List
-//
-annotate my.Genres with @(
-  Common.SemanticKey : [name],
-  UI                 : {
-    SelectionFields : [name],
-    LineItem        : [
-      { Value: name },
-      {
-        Value : parent.name,
-        Label: 'Main Genre'
-      },
-    ],
-  }
-);
-
-annotate my.Genres with {
-  ID  @Common.Text : name  @Common.TextArrangement : #TextOnly;
-}
-
-////////////////////////////////////////////////////////////////////////////
-//
-//	Genre Details
-//
-annotate my.Genres with @(UI : {
-  Identification : [{ Value: name}],
-  HeaderInfo     : {
-    TypeName       : '{i18n>Genre}',
-    TypeNamePlural : '{i18n>Genres}',
-    Title          : { Value: name },
-    Description    : { Value: ID }
-  },
-  Facets         : [{
-    $Type  : 'UI.ReferenceFacet',
-    Label  : '{i18n>SubGenres}',
-    Target : 'children/@UI.LineItem'
-  }, ],
-});
-
-////////////////////////////////////////////////////////////////////////////
-//
-//	Genres Elements
-//
-annotate my.Genres with {
-  ID   @title: '{i18n>ID}';
-  name @title: '{i18n>Genre}';
-}
 
 ////////////////////////////////////////////////////////////////////////////
 //
