@@ -13,11 +13,11 @@
               "isGroupLocked": false,
               "tiles": [
                 {
-                  "id": "BrowseBooks",
+                  "id": "BrowseQuizzes",
                   "tileType": "sap.ushell.ui.tile.StaticTile",
                   "properties": {
-                    "title": "Browse Books",
-                    "targetURL": "#Books-display"
+                    "title": "Browse Quizzes",
+                    "targetURL": "#Quizzes-display"
                   }
                 }
               ]
@@ -30,11 +30,11 @@
               "isGroupLocked": false,
               "tiles": [
                 {
-                  "id": "ManageBooks",
+                  "id": "ManageQuizzes",
                   "tileType": "sap.ushell.ui.tile.StaticTile",
                   "properties": {
-                    "title": "Manage Books",
-                    "targetURL": "#Books-manage"
+                    "title": "Manage Quizzes",
+                    "targetURL": "#Quizzes-manage"
                   }
                 }
               ]
@@ -52,16 +52,13 @@
       "adapter": {
         "config": {
           "inbounds": {
-            "BrowseBooks": {
-              "semanticObject": "Books",
+            "BrowseQuizzes": {
+            "semanticObject": "Quizzes",
               "action": "display",
-              "title": "Browse Books",
+              "title": "Browse Quizzes",
               "signature": {
                 "parameters": {
-                  "Books.ID": {
-                    "renameTo": "ID"
-                  },
-                  "Authors.books.ID": {
+                  "Quiz.ID": {
                     "renameTo": "ID"
                   }
                 },
@@ -70,7 +67,7 @@
               "resolutionResult": {
                 "applicationType": "SAPUI5",
                 "additionalInformation": "SAPUI5.Component=quizapp",
-                "url": "/browse/webapp"
+                "url": "/browse-quizzes/webapp"
               }
             }
           }

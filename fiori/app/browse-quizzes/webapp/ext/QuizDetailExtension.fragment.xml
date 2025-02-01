@@ -1,0 +1,7 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <VBox class="sapUiSmallMargin">
+        <Button text="Start Quiz" press=".onStartQuiz" />
+    </VBox>
+</core:FragmentDefinition>

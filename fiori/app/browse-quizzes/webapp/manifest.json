@@ -125,6 +125,32 @@
       "cozy": true
     }
   },
+  "sap.ui.generic.app": {
+    "pages": [
+      {
+        "entitySet": "Quizzes",
+        "component": {
+          "name": "sap.fe.templates.ObjectPage",
+          "settings": {
+            "componentData": {
+              "flexibility": {
+                "xml": {
+                  "fragment": {
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": "quizapp.ext.QuizDetailExtension"
+                  }
+                },
+                "js": {
+                  "controllerExtension": {
+                    "sap.suite.ui.generic.template.ObjectPage.controller.Details": "quizapp.ext.QuizDetail"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
   "sap.ui": {
     "technology": "UI5",
     "fullWidth": false,

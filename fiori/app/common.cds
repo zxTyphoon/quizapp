@@ -4,7 +4,7 @@ using { quizapp as my } from '../../quizapp';
 //	Quiz Lists
 //
 annotate my.Quizzes with @(
-  Common.SemanticKey : [quizId],
+  Common.SemanticKey : [title],
   UI                 : {
     Identification  : [{ Value: title }],
     SelectionFields : [
@@ -18,13 +18,7 @@ annotate my.Quizzes with @(
       { Value: description, Label: '{i18n>Description}' }
     ]
   }
-) {
-  quizId @Common: {
-    SemanticObject : 'Quizzes',
-    Text           : title,
-    TextArrangement: #TextOnly
-  };
-};
+);
 
 //
 //	Quiz Details
