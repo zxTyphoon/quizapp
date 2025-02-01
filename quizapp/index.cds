@@ -1,4 +1,3 @@
-namespace quizapp; //> important for reflection
+namespace quizapp;
 using from './db/schema';
-using from './srv/cat-service';
-using from './srv/user-service';
+using from './srv/quiz-service';

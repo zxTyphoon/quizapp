@@ -3,15 +3,15 @@
   "sap.app": {
     "id": "quizapp",
     "type": "application",
-    "title": "Browse Books",
-    "description": "Sample Application",
+    "title": "Browse Quizzes",
+    "description": "Quiz Application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
       "version": "1.0.0"
     },
     "dataSources": {
-      "CatalogService": {
-        "uri": "browse/",
+      "QuizService": {
+        "uri": "quiz/",
         "type": "OData",
         "settings": {
           "odataVersion": "4.0"
@@ -28,24 +28,21 @@
         "intent1": {
           "signature": {
             "parameters": {
-              "Books.ID":{
-                "renameTo": "ID"
-              },
-              "Authors.books.ID": {
-                "renameTo": "ID"
+              "Quizzes.quizId": {
+                "renameTo": "quizId"
               }
             },
             "additionalParameters": "ignored"
           },
-          "semanticObject": "Books",
+          "semanticObject": "Quizzes",
           "action": "display",
           "title": "{{appTitle}}",
           "info": "{{appInfo}}",
           "subTitle": "{{appSubTitle}}",
-          "icon": "sap-icon://course-book",
+          "icon": "sap-icon://question-mark",
           "indicatorDataSource": {
-            "dataSource": "CatalogService",
-            "path": "Books/$count",
+            "dataSource": "QuizService",
+            "path": "Quizzes/$count",
             "refresh": 1800
           }
         }
@@ -65,7 +62,7 @@
         "uri": "i18n/i18n.properties"
       },
       "": {
-        "dataSource": "CatalogService",
+        "dataSource": "QuizService",
         "settings": {
           "synchronizationMode": "None",
           "operationMode": "Server",
@@ -83,41 +80,41 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "BooksList",
-          "target": "BooksList"
+          "name": "QuizzesList",
+          "target": "QuizzesList"
         },
         {
-          "pattern": "Books({key}):?query:",
-          "name": "BooksDetails",
-          "target": "BooksDetails"
+          "pattern": "Quizzes({key}):?query:",
+          "name": "QuizzesDetails",
+          "target": "QuizzesDetails"
         }
       ],
       "targets": {
-        "BooksList": {
+        "QuizzesList": {
           "type": "Component",
-          "id": "BooksList",
+          "id": "QuizzesList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "entitySet": "Books",
+              "entitySet": "Quizzes",
               "initialLoad": true,
               "navigation": {
-                "Books": {
+                "Quizzes": {
                   "detail": {
-                    "route": "BooksDetails"
+                    "route": "QuizzesDetails"
                   }
                 }
               }
             }
           }
         },
-        "BooksDetails": {
+        "QuizzesDetails": {
           "type": "Component",
-          "id": "BooksDetailsList",
+          "id": "QuizzesDetails",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "entitySet": "Books"
+              "entitySet": "Quizzes"
             }
           }
         }
@@ -131,7 +128,7 @@
   "sap.ui": {
     "technology": "UI5",
     "fullWidth": false,
-    "deviceTypes":{
+    "deviceTypes": {
       "desktop": true,
       "tablet": true,
       "phone": true

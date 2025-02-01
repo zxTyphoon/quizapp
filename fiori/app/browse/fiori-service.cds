@@ -1,57 +1,47 @@
-using CatalogService from '../../../quizapp';
+using QuizService from '../../../quizapp';
 
-////////////////////////////////////////////////////////////////////////////
 //
-//	Books Object Page
+//	Quiz Object Page
 //
-annotate CatalogService.Books with @(UI : {
-    HeaderInfo        : {
-        TypeName       : '{i18n>Book}',
-        TypeNamePlural : '{i18n>Books}',
-        Description    : {Value : author}
+annotate QuizService.Quizzes with @(UI : {
+    HeaderInfo : {
+        TypeName       : '{i18n>Quiz}',
+        TypeNamePlural : '{i18n>Quizzes}',
+        Description    : { Value: description }
     },
-    HeaderFacets      : [{
+    HeaderFacets : [{
         $Type  : 'UI.ReferenceFacet',
         Label  : '{i18n>Description}',
         Target : '@UI.FieldGroup#Descr'
-    }, ],
-    Facets            : [{
+    }],
+    Facets : [{
         $Type  : 'UI.ReferenceFacet',
         Label  : '{i18n>Details}',
-        Target : '@UI.FieldGroup#Price'
-    }, ],
-    FieldGroup #Descr : {Data : [{Value : descr}, ]},
-    FieldGroup #Price : {Data : [
-        {Value : price},
-        {
-            Value : currency.symbol,
-            Label : '{i18n>Currency}'
-        },
-    ]},
+        Target : '@UI.FieldGroup#Details'
+    }],
+    FieldGroup #Descr : { Data : [{ Value : description }] },
+    FieldGroup #Details : { Data : [
+        { Value : quizId, Label : '{i18n>Quiz ID}' },
+        { Value : title, Label : '{i18n>Title}' }
+    ]}
 });
 
-
-////////////////////////////////////////////////////////////////////////////
 //
-//	Books List Page
+//	Quiz List Page
 //
-annotate CatalogService.Books with @(UI : {
+annotate QuizService.Quizzes with @(UI : {
     SelectionFields : [
-        ID,
-        price,
-        currency_code
+        quizId,
+        title
     ],
-    LineItem        : [
+    LineItem : [
         {
-            Value : ID,
+            Value : quizId,
+            Label : '{i18n>Quiz ID}'
+        },
+        {
+            Value : title,
             Label : '{i18n>Title}'
-        },
-        {
-            Value : author,
-            Label : '{i18n>Author}'
-        },
-        {Value : genre.name},
-        {Value : price},
-        {Value : currency.symbol},
+        }
     ]
-}, );
+});

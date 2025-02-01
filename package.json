@@ -1,5 +1,5 @@
 {
-  "name": "@capire/samples",
+  "name": "quiz",
   "version": "2.1.0",
   "description": "A monorepo with several samples for CAP.",
   "dependencies": {
