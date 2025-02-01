@@ -43,6 +43,6 @@
     }
   },
   "sapux": [
-    "app/quizapp"
+    "app/browse-quizzes"
   ]
 }
