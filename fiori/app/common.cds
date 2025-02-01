@@ -1,5 +1,4 @@
-using { quizapp as my } from '../../quizapp';
-
+using { quizapp as my } from './browse-quizzes';
 //
 //	Quiz Lists
 //

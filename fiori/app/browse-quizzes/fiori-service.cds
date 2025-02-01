@@ -1,4 +1,4 @@
-using QuizService from '../../../quizapp';
+using QuizService from '.';
 
 //
 //	Quiz Object Page
