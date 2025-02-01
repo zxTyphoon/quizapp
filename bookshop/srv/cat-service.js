@@ -2,7 +2,7 @@ const cds = require('@sap/cds')
 
 class CatalogService extends cds.ApplicationService { init() {
 
-  const { Books } = cds.entities('sap.capire.bookshop')
+  const { Books } = cds.entities('quizapp')
   const { ListOfBooks } = this.entities
 
   // Add some discount for overstocked books

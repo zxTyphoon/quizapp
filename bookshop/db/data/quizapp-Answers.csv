@@ -1,0 +1,22 @@
+ID;answerId;text;isCorrect_code;questions_ID
+5eb22254-c7d4-435a-8899-91ec5ffb0286;A001;Paris;true;2f6b2720-a987-4fbe-b7ab-f4c951b8a996
+a750781f-f414-431a-b841-f32f6034c95c;A002;London;false;2f6b2720-a987-4fbe-b7ab-f4c951b8a996
+8f07072b-0d77-4326-af3b-f7fb386a68bc;A003;Rome;false;2f6b2720-a987-4fbe-b7ab-f4c951b8a996
+3d57dd53-d8af-4424-bbe8-a94966ead510;B001;Alexander Fleming;true;0a97845f-d6fd-43c0-a808-286e0f7f4595
+64f20140-5a4f-4a4a-9485-3ce051ef9183;B002;Marie Curie;false;0a97845f-d6fd-43c0-a808-286e0f7f4595
+d59392a3-bfc5-4561-ada9-e12e52518190;B003;Louis Pasteur;false;0a97845f-d6fd-43c0-a808-286e0f7f4595
+82897788-a911-40a2-b9f0-7a5a8c41f377;C001;1865;true;e3da8759-b72c-494a-be6b-1b7b03c56f94
+a3070053-2365-4f7f-bb54-090ece666139;C002;1861;false;e3da8759-b72c-494a-be6b-1b7b03c56f94
+915fe47c-87ee-4dfa-b71f-6f94457da535;C003;1863;false;e3da8759-b72c-494a-be6b-1b7b03c56f94
+d534238d-8188-4f4b-b646-bae0157e78aa;D001;8;true;2b3d1d0a-ef5d-4afb-8b8f-20e2603e29a2
+18ad3306-5e33-43ad-b665-cc691b361613;D002;10;false;2b3d1d0a-ef5d-4afb-8b8f-20e2603e29a2
+4c091b84-045c-4300-9263-0a8e638104a9;D003;9;false;2b3d1d0a-ef5d-4afb-8b8f-20e2603e29a2
+8f76261a-bcdf-4367-86fa-ea779a2f7b0a;E001;George Orwell;false;b10c3fc7-8a64-4478-af5a-b2f6bd031b16
+47d0fe82-86df-4cbf-8f04-aeba4c65398b;E002;Charles Dickens;false;b10c3fc7-8a64-4478-af5a-b2f6bd031b16
+736dc1eb-c85d-4647-a035-a928319c7d4f;E003;William Shakespeare;true;b10c3fc7-8a64-4478-af5a-b2f6bd031b16
+ec03dec4-63a2-4746-90ec-7d63afbb934e;F001;H2O;true;3ac73f4f-8f8c-4c2c-83eb-b817a159db60
+14c071aa-939c-4c7d-a2b9-9b3d8cb3f7a4;F002;O2;false;3ac73f4f-8f8c-4c2c-83eb-b817a159db60
+91aedf8b-7f5a-4833-a9ba-7835f0ed9ff5;F003;Co2;false;3ac73f4f-8f8c-4c2c-83eb-b817a159db60
+47812ae5-b2aa-49ac-a1df-2b21af9083fd;G001;George Washington;true;429d6d01-d660-4bbb-9f7c-4950c953ec90
+8a66b415-3b29-48d6-b73f-4bbf9bfb8d83;G002;Thomas Jefferson;false;429d6d01-d660-4bbb-9f7c-4950c953ec90
+e51bcba4-4640-4106-9217-b5f20f9686a4;G003;Abraham Lincoln;false;429d6d01-d660-4bbb-9f7c-4950c953ec90
