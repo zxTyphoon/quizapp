@@ -4,4 +4,4 @@
 
 using from './browse/fiori-service';
 using from './common';
-using from '@capire/bookshop/index';
+using from '../../quizapp/index';

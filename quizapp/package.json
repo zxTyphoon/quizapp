@@ -1,7 +1,7 @@
 {
-  "name": "@capire/bookshop",
+  "name": "quizapp",
   "version": "1.0.0",
-  "description": "A simple self-contained bookshop service.",
+  "description": "A simple self-contained quizapp service.",
   "files": [
     "app",
     "srv",

@@ -44,7 +44,7 @@ npm ci
 With that you're ready to run the samples, for example:
 
 ```sh
-cds watch bookshop
+cds watch quizapp
 ```
 
 After that open this link in your browser: [http://localhost:4004](http://localhost:4004)

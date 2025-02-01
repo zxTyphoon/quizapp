@@ -6,7 +6,7 @@
     "@sap/cds": ">=8"
   },
   "workspaces": [
-    "./bookshop",
+    "./quizapp",
     "./fiori"
   ],
   "devDependencies": {
@@ -20,7 +20,7 @@
     "semver": "^7"
   },
   "scripts": {
-    "bookshop": "cds watch bookshop",
+    "quizapp": "cds watch quizapp",
     "start": "cds watch fiori",
     "fiori": "cds watch fiori",
     "lint": "eslint",

@@ -6,8 +6,8 @@
           "catalogs": [],
           "groups": [
             {
-              "id": "Bookshop",
-              "title": "Bookshop",
+              "id": "quizapp",
+              "title": "quizapp",
               "isPreset": true,
               "isVisible": true,
               "isGroupLocked": false,
@@ -69,7 +69,7 @@
               },
               "resolutionResult": {
                 "applicationType": "SAPUI5",
-                "additionalInformation": "SAPUI5.Component=bookshop",
+                "additionalInformation": "SAPUI5.Component=quizapp",
                 "url": "/browse/webapp"
               }
             }

@@ -38,6 +38,7 @@ entity Quizzes {
   quizId: String(50) @assert.unique @mandatory;
   title: String(100);
   questions: Association to many Questions on questions.quizzes = $self;
+  description: String(255);
 }
 
 entity Questions {

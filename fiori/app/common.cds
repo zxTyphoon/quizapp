@@ -2,7 +2,7 @@
  Common Annotations shared by all apps
 */
 
-using { quizapp as my } from '@capire/bookshop';
+using { quizapp as my } from '../../quizapp';
 
 ////////////////////////////////////////////////////////////////////////////
 //

@@ -1,7 +1,7 @@
 {
   "_version": "1.28.0",
   "sap.app": {
-    "id": "bookshop",
+    "id": "quizapp",
     "type": "application",
     "title": "Browse Books",
     "description": "Sample Application",
