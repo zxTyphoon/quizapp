@@ -1,13 +1,16 @@
 using QuizService from '.';
 
+annotate QuizService.Quizzes with @(Common.SemanticKey : [title]);
+
 //
-//	Quiz Object Page
+// Quiz Object Page
 //
 annotate QuizService.Quizzes with @(UI: {
     HeaderInfo         : {
         TypeName      : '{i18n>Quiz}',
         TypeNamePlural: '{i18n>Quizzes}',
-        Description   : {Value: description}
+        Title        : { Value: title },
+        Description  : { Value: description }
     },
     HeaderFacets       : [{
         $Type : 'UI.ReferenceFacet',
@@ -33,17 +36,8 @@ annotate QuizService.Quizzes with @(UI: {
             Value: description,
             Label: '{i18n>Description}'
         }
-    ]}
-});
-
-//
-//	Quiz List Page
-//
-annotate QuizService.Quizzes with @(UI: {
-    SelectionFields    : [
-        quizId,
-        title
-    ],
+    ]},
+    SelectionFields    : [quizId, title],
     LineItem           : [
         {
             Value: quizId,
@@ -59,3 +53,10 @@ annotate QuizService.Quizzes with @(UI: {
         }
     ]
 });
+
+// Field titles
+annotate QuizService.Quizzes with {
+    quizId      @title: '{i18n>Quiz ID}';
+    title       @title: '{i18n>Title}';
+    description @title: '{i18n>Description}' @UI.MultiLineText;
+};

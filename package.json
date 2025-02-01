@@ -1,14 +1,12 @@
 {
   "name": "quiz",
   "version": "2.1.0",
-  "description": "A monorepo with several samples for CAP.",
+  "description": "A CAP project for a quiz application.",
   "dependencies": {
-    "@sap/cds": ">=8"
+    "@sap/cds": ">=8",
+    "@cap-js-community/odata-v2-adapter": "^1",
+    "express": "^4.17.1"
   },
-  "workspaces": [
-    "./quizapp",
-    "./fiori"
-  ],
   "devDependencies": {
     "@cap-js/cds-types": "^0",
     "@cap-js/sqlite": "^1",
@@ -20,19 +18,46 @@
     "semver": "^7"
   },
   "scripts": {
+    "start": "cds watch",
     "quizapp": "cds watch quizapp",
-    "start": "cds watch fiori",
-    "fiori": "cds watch fiori",
     "lint": "eslint",
     "test": "npx jest --silent",
     "jest": "npx jest --silent",
     "mocha": "CDS_TEST_SILENT=y npx mocha"
+  },
+  "cds": {
+    "requires": {
+      "messaging": {
+        "[production]": {
+          "kind": "enterprise-messaging"
+        },
+        "[development]": {
+          "kind": "file-based-messaging"
+        },
+        "[hybrid]": {
+          "kind": "enterprise-messaging-shared"
+        }
+      },
+      "db": {
+        "kind": "sql"
+      },
+      "db-ext": {
+        "[development]": {
+          "model": "db/sqlite"
+        },
+        "[production]": {
+          "model": "db/hana"
+        }
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
   },
   "mocha": {
     "recursive": true,
     "parallel": true,
     "timeout": 6666
   },
-  "license": "SEE LICENSE IN LICENSE",
   "private": true
 }
