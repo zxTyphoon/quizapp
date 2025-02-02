@@ -1,6 +1,6 @@
-ID;quizId;title;description
-0f843348-b8cf-4245-af79-9fed9320e433;Quiz001;General Knowledge Quiz;Test your knowledge on a variety of topics
-4ec85f90-5ac9-409d-b6ce-ef111e82e1d0;Quiz002;Science Trivia;Test your knowledge on science topics
-a3dbcc4f-10e9-468f-8f5c-84ab087687a6;Quiz003;History Challenge;Test your knowledge on historical topics
-2827860c-17ce-4750-8957-826de3c8889c;Quiz004;Math Puzzles;Test your knowledge on math topics
-76eee9cc-405f-49ce-ae0f-3a8fe998a83e;Quiz005;Literature Test;Test your knowledge on literature topics
+ID;title;description;creationDate
+0f843348-b8cf-4245-af79-9fed9320e433;General Knowledge Quiz;Test your knowledge on a variety of topics;2025-01-30T10:00:00Z
+4ec85f90-5ac9-409d-b6ce-ef111e82e1d0;Science Trivia;Test your knowledge on science topics;2025-01-29T10:05:00Z
+a3dbcc4f-10e9-468f-8f5c-84ab087687a6;History Challenge;Test your knowledge on historical topics;2025-01-28T10:10:00Z
+2827860c-17ce-4750-8957-826de3c8889c;Math Puzzles;Test your knowledge on math topics;2025-02-01T10:15:00Z
+76eee9cc-405f-49ce-ae0f-3a8fe998a83e;Literature Test;Test your knowledge on literature topics;2025-02-02T10:20:00Z

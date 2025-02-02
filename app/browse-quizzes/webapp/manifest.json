@@ -87,16 +87,6 @@
           "pattern": "Quizzes({key}):?query:",
           "name": "QuizzesDetails",
           "target": "QuizzesDetails"
-        },
-        {
-          "pattern": "TakeQuiz({key})",
-          "name": "TakeQuiz",
-          "target": "TakeQuiz"
-        },
-        {
-          "pattern": "Results/{quizId}/{score}",
-          "name": "QuizResults",
-          "target": "QuizResults"
         }
       ],
       "targets": {
@@ -123,25 +113,10 @@
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "entitySet": "Quizzes"
+              "entitySet": "Quizzes",
+              "editable": true
             }
           }
-        },
-        "TakeQuiz": {
-          "type": "View",
-          "id": "TakeQuiz",
-          "name": "TakeQuiz",
-          "viewType": "XML",
-          "viewPath": "quizapp.view",
-          "title": "{i18n>takeQuizTitle}"
-        },
-        "QuizResults": {
-          "type": "View",
-          "id": "QuizResults",
-          "name": "QuizResults",
-          "viewType": "XML",
-          "viewPath": "quizapp.view",
-          "title": "{i18n>quizResultsTitle}"
         }
       }
     },

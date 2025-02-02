@@ -3,7 +3,6 @@ using QuizService from '.';
 // Common semantic keys
 annotate QuizService.Quizzes with @(Common.SemanticKey: [title]);
 annotate QuizService.Questions with @(Common.SemanticKey: [text]);
-annotate QuizService.Answers with @(Common.SemanticKey: [text]);
 annotate QuizService.Users with @(Common.SemanticKey: [username]);
 annotate QuizService.Results with @(Common.SemanticKey: [score]);
 
@@ -30,7 +29,7 @@ annotate QuizService.Quizzes with @(UI: {
     }],
     FieldGroup #Descr: { Data: [{ Value: description }] },
     FieldGroup #Details: { Data: [
-        { Value: quizId, Label: '{i18n>Quiz ID}' },
+        { Value: title, Label: '{i18n>Quiz ID}' },
         { Value: title, Label: '{i18n>Title}' },
         { Value: description, Label: '{i18n>Description}' }
     ]},
@@ -41,9 +40,9 @@ annotate QuizService.Quizzes with @(UI: {
         Inline: true,
         Determining: true
     }],
-    SelectionFields: [quizId, title],
+    SelectionFields: [title, title],
     LineItem: [
-        { Value: quizId, Label: '{i18n>Quiz ID}' },
+        { Value: title, Label: '{i18n>Quiz ID}' },
         { Value: title, Label: '{i18n>Title}' },
         { Value: description, Label: '{i18n>Description}' }
     ]
@@ -55,7 +54,7 @@ annotate QuizService.Questions with @(UI: {
         TypeName      : '{i18n>Question}',
         TypeNamePlural: '{i18n>Questions}',
         Title        : { Value: text },
-        Description  : { Value: questionId }
+        Description  : { Value: text }
     },
     Facets: [{
         $Type : 'UI.ReferenceFacet',
@@ -63,40 +62,14 @@ annotate QuizService.Questions with @(UI: {
         Target: '@UI.FieldGroup#QDetails'
     }],
     FieldGroup #QDetails: { Data: [
-        { Value: questionId, Label: '{i18n>QuestionID}' },
+        { Value: text, Label: '{i18n>QuestionID}' },
         { Value: text, Label: '{i18n>QuestionText}' },
-        { Value: quiz.quizId, Label: '{i18n>AssociatedQuiz}' }
+        { Value: quiz.title, Label: '{i18n>AssociatedQuiz}' }
     ]},
     LineItem: [
-        { Value: questionId, Label: '{i18n>QuestionID}' },
+        { Value: text, Label: '{i18n>QuestionID}' },
         { Value: text, Label: '{i18n>QuestionText}' },
-        { Value: quiz.quizId, Label: '{i18n>QuizID}' }
-    ]
-});
-
-// Answer Entity Annotations
-annotate QuizService.Answers with @(UI: {
-    HeaderInfo: {
-        TypeName      : '{i18n>Answer}',
-        TypeNamePlural: '{i18n>Answers}',
-        Title        : { Value: answerId },
-        Description  : { Value: text }
-    },
-    Facets: [{
-        $Type : 'UI.ReferenceFacet',
-        Label : '{i18n>AnswerDetails}',
-        Target: '@UI.FieldGroup#ADetails'
-    }],
-    FieldGroup #ADetails: { Data: [
-        { Value: answerId, Label: '{i18n>AnswerID}' },
-        { Value: text, Label: '{i18n>AnswerText}' },
-        { Value: isCorrect.code, Label: '{i18n>Correctness}' },
-        { Value: question.text, Label: '{i18n>AssociatedQuestion}' }
-    ]},
-    LineItem: [
-        { Value: answerId, Label: '{i18n>AnswerID}' },
-        { Value: text, Label: '{i18n>AnswerText}' },
-        { Value: isCorrect.code, Label: '{i18n>IsCorrect}' }
+        { Value: quiz.title, Label: '{i18n>QuizID}' }
     ]
 });
 
@@ -106,7 +79,6 @@ annotate QuizService.Users with @(UI: {
         TypeName      : '{i18n>User}',
         TypeNamePlural: '{i18n>Users}',
         Title        : { Value: username },
-        Description  : { Value: email }
     },
     Facets: [{
         $Type : 'UI.ReferenceFacet',
@@ -114,9 +86,9 @@ annotate QuizService.Users with @(UI: {
         Target: '@UI.FieldGroup#UDetails'
     }],
     FieldGroup #UDetails: { Data: [
-        { Value: userId, Label: '{i18n>UserID}' },
+        { Value: username, Label: '{i18n>UserID}' },
         { Value: username, Label: '{i18n>Username}' },
-        { Value: email, Label: '{i18n>Email}' },
+        { Value: username, Label: '{i18n>Email}' },
         { 
             $Type: 'UI.DataFieldWithIntentBasedNavigation',
             Value: '{i18n>ViewResults}',
@@ -125,9 +97,8 @@ annotate QuizService.Users with @(UI: {
         }
     ]},
     LineItem: [
-        { Value: userId, Label: '{i18n>UserID}' },
-        { Value: username, Label: '{i18n>Username}' },
-        { Value: email, Label: '{i18n>Email}' }
+        { Value: username, Label: '{i18n>UserID}' },
+        { Value: username, Label: '{i18n>Username}' }
     ]
 });
 
@@ -145,67 +116,30 @@ annotate QuizService.Results with @(UI: {
         Target: '@UI.FieldGroup#RDetails'
     }],
     FieldGroup #RDetails: { Data: [
-        { Value: resultId, Label: '{i18n>ResultID}' },
+        { Value: ID, Label: '{i18n>ResultID}' },
         { Value: score, Label: '{i18n>Score}' },
         { Value: user.username, Label: '{i18n>User}' }
     ]},
     LineItem: [
-        { Value: resultId, Label: '{i18n>ResultID}' },
+        { Value: ID, Label: '{i18n>ResultID}' },
         { Value: score, Label: '{i18n>Score}' },
-        { Value: user.userId, Label: '{i18n>UserID}' }
+        { Value: user.username, Label: '{i18n>UserID}' }
     ]
 });
 
-// AnswersIsCorrectCodeList Annotations
-annotate QuizService.AnswersIsCorrectCodeList with @(UI: {
-    HeaderInfo: {
-        TypeName      : '{i18n>CorrectnessCode}',
-        TypeNamePlural: '{i18n>CorrectnessCodes}',
-        Title        : { Value: code },
-        Description  : { Value: name }
-    },
-    Facets: [{
-        $Type : 'UI.ReferenceFacet',
-        Label : '{i18n>CodeDetails}',
-        Target: '@UI.FieldGroup#CDetails'
-    }],
-    FieldGroup #CDetails: { Data: [
-        { Value: code, Label: '{i18n>Code}' },
-        { Value: name, Label: '{i18n>Description}' },
-        { Value: criticality, Label: '{i18n>Criticality}' }
-    ]},
-    LineItem: [
-        { Value: code, Label: '{i18n>Code}' },
-        { Value: name, Label: '{i18n>Description}' },
-        { Value: criticality, Label: '{i18n>Criticality}' }
-    ]
-});
-
-// Field titles for all entities
 annotate QuizService.Quizzes with {
-    quizId      @title: '{i18n>QuizID}';
     title       @title: '{i18n>Title}';
     description @title: '{i18n>Description}' @UI.MultiLineText;
 };
 
 annotate QuizService.Questions with {
-    questionId  @title: '{i18n>QuestionID}';
     text        @title: '{i18n>QuestionText}' @UI.MultiLineText;
 };
 
-annotate QuizService.Answers with {
-    answerId    @title: '{i18n>AnswerID}';
-    text        @title: '{i18n>AnswerText}';
-    isCorrect   @title: '{i18n>Correctness}';
-};
-
 annotate QuizService.Users with {
-    userId      @title: '{i18n>UserID}';
     username    @title: '{i18n>Username}';
-    email       @title: '{i18n>Email}';
 };
 
 annotate QuizService.Results with {
-    resultId    @title: '{i18n>ResultID}';
     score       @title: '{i18n>Score}';
 };
