@@ -87,6 +87,21 @@
           "pattern": "Quizzes({key}):?query:",
           "name": "QuizzesDetails",
           "target": "QuizzesDetails"
+        },
+        {
+          "pattern": "TakeQuiz/{key}",
+          "name": "TakeQuiz",
+          "target": "TakeQuiz"
+        },
+        {
+          "pattern": "Questions({questionID})/Answers",
+          "name": "Answers",
+          "target": "Answers"
+        },
+        {
+          "pattern": "Results/{score}/{total}",
+          "name": "Results",
+          "target": "Results"
         }
       ],
       "targets": {
@@ -97,7 +112,6 @@
           "options": {
             "settings": {
               "entitySet": "Quizzes",
-              "initialLoad": true,
               "navigation": {
                 "Quizzes": {
                   "detail": {
@@ -117,6 +131,27 @@
               "entitySet": "Quizzes"
             }
           }
+        },
+        "TakeQuiz": {
+          "type": "View",
+          "id": "TakeQuiz",
+          "name": "TakeQuiz",
+          "viewType": "XML",
+          "viewPath": "quizapp.view"
+        },
+        "Answers": {
+          "type": "View",
+          "id": "Answers",
+          "name": "Answers",
+          "viewType": "XML",
+          "viewPath": "quizapp.view"
+        },
+        "Results": {
+          "type": "View",
+          "id": "Results",
+          "name": "Results",
+          "viewType": "XML",
+          "viewPath": "quizapp.view"
         }
       }
     },

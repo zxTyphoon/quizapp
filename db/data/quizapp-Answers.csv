@@ -1,4 +1,4 @@
-ID;answerId;text;isCorrect_code;questions_ID
+ID;answerId;text;isCorrect_code;question_ID
 5eb22254-c7d4-435a-8899-91ec5ffb0286;A001;Paris;true;2f6b2720-a987-4fbe-b7ab-f4c951b8a996
 a750781f-f414-431a-b841-f32f6034c95c;A002;London;false;2f6b2720-a987-4fbe-b7ab-f4c951b8a996
 8f07072b-0d77-4326-af3b-f7fb386a68bc;A003;Rome;false;2f6b2720-a987-4fbe-b7ab-f4c951b8a996

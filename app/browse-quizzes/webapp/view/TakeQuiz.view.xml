@@ -1,0 +1,28 @@
+<!-- app/browse-quizzes/webapp/view/TakeQuiz.view.xml -->
+<mvc:View
+    controllerName="quizapp.controller.TakeQuiz"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="{quizData>/quiz/title}">
+        <content>
+            <List items="{quizData>/questions}">
+                <CustomListItem>
+                    <VBox class="sapUiSmallMargin">
+                        <Text text="{quizData>text}"/>
+                        <ComboBox 
+                            selectedKey="{quizState>/answers/{quizState>/currentQuestion}}"
+                            items="{path: 'quizData>answers', templateShareable: false}"
+                            selectionChange=".onAnswerSelect">
+                            <core:Item key="{quizData>ID}" text="{quizData>text}"/>
+                        </ComboBox>
+                    </VBox>
+                </CustomListItem>
+            </List>
+            <Button 
+                text="Submit Quiz" 
+                press=".onSubmit"
+                class="sapUiMediumMargin"/>
+        </content>
+    </Page>
+</mvc:View>
