@@ -36,8 +36,10 @@ annotate QuizService.Quizzes with @(UI: {
     ]},
     Identification: [{
         $Type: 'UI.DataFieldForAction',
-        Action: 'QuizService.navToQuiz',
-        Label: '{i18n>Take Quiz}'
+        Action: 'QuizService.submitQuiz',
+        Label: '{i18n>submitQuiz}',
+        Inline: true,
+        Determining: true
     }],
     SelectionFields: [quizId, title],
     LineItem: [

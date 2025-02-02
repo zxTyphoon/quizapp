@@ -89,19 +89,14 @@
           "target": "QuizzesDetails"
         },
         {
-          "pattern": "TakeQuiz/{key}",
+          "pattern": "TakeQuiz({key})",
           "name": "TakeQuiz",
           "target": "TakeQuiz"
         },
         {
-          "pattern": "Questions({questionID})/Answers",
-          "name": "Answers",
-          "target": "Answers"
-        },
-        {
-          "pattern": "Results/{score}/{total}",
-          "name": "Results",
-          "target": "Results"
+          "pattern": "Results/{quizId}/{score}",
+          "name": "QuizResults",
+          "target": "QuizResults"
         }
       ],
       "targets": {
@@ -137,21 +132,16 @@
           "id": "TakeQuiz",
           "name": "TakeQuiz",
           "viewType": "XML",
-          "viewPath": "quizapp.view"
+          "viewPath": "quizapp.view",
+          "title": "{i18n>takeQuizTitle}"
         },
-        "Answers": {
+        "QuizResults": {
           "type": "View",
-          "id": "Answers",
-          "name": "Answers",
+          "id": "QuizResults",
+          "name": "QuizResults",
           "viewType": "XML",
-          "viewPath": "quizapp.view"
-        },
-        "Results": {
-          "type": "View",
-          "id": "Results",
-          "name": "Results",
-          "viewType": "XML",
-          "viewPath": "quizapp.view"
+          "viewPath": "quizapp.view",
+          "title": "{i18n>quizResultsTitle}"
         }
       }
     },
