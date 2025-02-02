@@ -1,4 +1,4 @@
-using { quizapp as my } from '../db/schema';
+using { quizapp as my } from '../../../db/schema';
 
 service QuizService @(path:'/quiz') {
 
