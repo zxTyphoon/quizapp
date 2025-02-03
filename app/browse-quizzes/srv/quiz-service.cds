@@ -1,42 +1,36 @@
-using { quizapp as my } from '../../../db/schema';
+using {quizapp as my} from '../../../db/schema';
 
 service QuizService @(path: '/quiz') {
 
-  entity Users as projection on my.Users;
+  entity Users         as projection on my.Users;
 
-@readonly entity ListOfQuizzes as projection on my.Quizzes
-    excluding { questions }
-    
-    
+  @readonly
+  entity ListOfQuizzes as projection on my.Quizzes; 
 
-@cds.redirection.target entity Quizzes as projection on my.Quizzes {
-      *,
-      questions : Composition of many Questions on questions.quiz = $self
+  @cds.redirection.target @readonly
+  entity Quizzes       as projection on my.Quizzes{
+    *,
+    questions
   }
-  actions {
-      action submitQuiz(answers: array of Answer) returns QuizResult;
-  };
+    actions {
+      action submitQuiz(answers : array of Answer) returns QuizResult;
+    };
 
   type Answer {
-      questionID : UUID;
-      userAnswer : String(255);
+    questionID : UUID;
+    userAnswer : String(255);
   };
 
   type QuizResult {
-      correctCount   : Integer;
-      totalQuestions : Integer;
-      scorePercent   : Integer;
-      message        : String;
+    correctCount   : Integer;
+    totalQuestions : Integer;
+    scorePercent   : Integer;
+    message        : String;
   };
 
-  entity Questions as projection on my.Questions {
+  entity Questions     as
+    projection on my.Questions {
       *,
       userAnswer
-  };
-
-  entity Results as projection on my.Results {
-      *,
-      user : redirected to Users,
-      quiz : redirected to Quizzes
-  };
+    };
 }

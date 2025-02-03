@@ -1,21 +1,20 @@
 namespace quizapp;
 
-entity Quizzes {
-  key ID          : UUID @assert.unique  @mandatory;
-      title       : String(100);
-      description : String(255);
-      creationDate: DateTime;
-}
-annotate Questions with @odata.draft.enabled;
-
 entity Questions {
   key ID             : UUID @assert.unique  @mandatory;
       text           : String(255);
       options        : many String(255);
       correctAnswer  : String(255);
       quiz          : Association to Quizzes;
-
       userAnswer    : String(255) @Common.Label: '{i18n>UserAnswer}' @cds.once;
+}
+
+entity Quizzes {
+  key ID          : UUID @assert.unique  @mandatory;
+      title       : String(100);
+      description : String(255);
+      creationDate: DateTime;
+      questions   : Composition of many Questions on questions.quiz = $self;
 }
 
 entity Users {
