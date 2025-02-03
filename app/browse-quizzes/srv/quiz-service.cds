@@ -11,7 +11,7 @@ service QuizService @(path: '/quiz') {
       questions
     }
     actions {
-      action submitQuiz(answers : array of Answer) returns QuizResult;
+      action submitQuiz(answers : String) returns QuizResult;
     };
 
   type Answer {
