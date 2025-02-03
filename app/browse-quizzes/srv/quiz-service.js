@@ -1,9 +1,29 @@
 module.exports = async (srv) => {
+  const cds = require('@sap/cds');
+  const { SELECT } = cds;
+
+  srv.after("READ", "Questions", each => {
+    if (each.options) {
+      let opts = [];
+      if (Array.isArray(each.options)) {
+        opts = each.options;
+      } else if (typeof each.options === "string") {
+        opts = each.options.split(",");
+        console.log("Options: ", opts);
+      }
+      each.option1 = opts[0] ? opts[0].trim() : "";
+      each.option2 = opts[1] ? opts[1].trim() : "";
+      each.option3 = opts[2] ? opts[2].trim() : "";
+    }
+  });
+
   srv.on("submitQuiz", async (req) => {
     const quizID = req.params[0];
-    const questions = await SELECT.from('QuizService.Questions')
-      .where({ quiz_ID: quizID })
-      .columns(['ID', 'correctAnswer', 'userAnswer']);
+    const questions = await cds.tx(req).run(
+      SELECT.from('QuizService.Questions')
+        .where({ quiz_ID: quizID })
+        .columns(['ID', 'correctAnswer', 'userAnswer'])
+    );
 
     const results = questions.reduce((acc, q) => {
       acc.total++;

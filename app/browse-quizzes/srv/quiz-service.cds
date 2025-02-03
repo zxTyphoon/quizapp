@@ -1,17 +1,15 @@
 using {quizapp as my} from '../../../db/schema';
 
 service QuizService @(path: '/quiz') {
-
-  entity Users         as projection on my.Users;
-
   @readonly
-  entity ListOfQuizzes as projection on my.Quizzes; 
+  entity ListOfQuizzes as projection on my.Quizzes;
 
-  @cds.redirection.target @readonly
-  entity Quizzes       as projection on my.Quizzes{
-    *,
-    questions
-  }
+  @cds.redirection.target  @readonly
+  entity Quizzes       as
+    projection on my.Quizzes {
+      *,
+      questions
+    }
     actions {
       action submitQuiz(answers : array of Answer) returns QuizResult;
     };
@@ -31,6 +29,10 @@ service QuizService @(path: '/quiz') {
   entity Questions     as
     projection on my.Questions {
       *,
-      userAnswer
+      options,
+      userAnswer,
+      option1,
+      option2,
+      option3
     };
 }

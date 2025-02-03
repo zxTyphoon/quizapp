@@ -43,7 +43,10 @@ annotate QuizService.Quizzes with @(UI: {
 
 
 annotate QuizService.Questions with @(UI.LineItem: [
-    { Value: text, Label: '{i18n>questionText}' }
+    { Value: text,    Label: '{i18n>Question}' },
+    { Value: option1, Label: '{i18n>Option1}' },
+    { Value: option2, Label: '{i18n>Option2}' },
+    { Value: option3, Label: '{i18n>Option3}' }
 ]);
 
 
