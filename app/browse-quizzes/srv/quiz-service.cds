@@ -29,7 +29,6 @@ service QuizService @(path: '/quiz') {
   entity Questions     as
     projection on my.Questions {
       *,
-      options,
       userAnswer,
       option1,
       option2,

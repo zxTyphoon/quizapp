@@ -2,7 +2,19 @@ module.exports = async (srv) => {
   const cds = require('@sap/cds');
   const { SELECT } = cds;
 
+  srv.before("READ", "Questions", (req) => {
+    if (req.query && req.query.SELECT && req.query.SELECT.columns) {
+      const columns = req.query.SELECT.columns;
+      const hasOptions = columns.some(col => col.ref && col.ref[0] === "options");
+      if (!hasOptions) {
+        columns.push({ ref: ["options"] });
+      }
+    }
+  });
+  
+
   srv.after("READ", "Questions", each => {
+    console.log("Each: ", each);
     if (each.options) {
       let opts = [];
       if (Array.isArray(each.options)) {

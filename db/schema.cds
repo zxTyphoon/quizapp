@@ -1,15 +1,15 @@
 namespace quizapp;
 
 entity Questions {
-  key ID            : UUID         @assert.unique                      @mandatory;
+  key ID            : UUID                   @assert.unique                      @UI.Hidden  @mandatory;
       text          : String(255);
-      options       : String(255);
-      correctAnswer : String(255);
-      quiz          : Association to Quizzes;
-      userAnswer    : String(255)  @Common.Label: '{i18n>UserAnswer}'  @cds.once;
-      option1       : String       @cds.computed;
-      option2       : String       @cds.computed;
-      option3       : String       @cds.computed
+      options       : String(255)            @UI.Hidden;
+      correctAnswer : String(255)            @UI.Hidden;
+      quiz          : Association to Quizzes @UI.Hidden;
+      userAnswer    : String(255)            @Common.Label: '{i18n>UserAnswer}'  @cds.once;
+      option1       : String                 @cds.computed;
+      option2       : String                 @cds.computed;
+      option3       : String                 @cds.computed
 }
 
 entity Quizzes {
